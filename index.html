@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container" hidden="true" id="container">
+    <div class="container" id="container">
       <!-- Quote -->
       <div class="quote-text">
         <i class="fas fa-quote-left"></i>
@@ -22,14 +22,26 @@
         <span id="author"></span>
       </div>
       <div class="btn-container">
-        <button class="twitter-btn" id="twitter" title="Tweet this!">
+        <!-- <button class="twitter-btn" id="twitter" title="Tweet this!">
           <i class="fab fa-twitter"></i>
+        </button> -->
+        <button id="new-quote">
+          <span>Ấn vào đây</span>
+          <i class="fas fa-angle-right"></i>
         </button>
-        <button id="new-quote">New Quote</button>
+        <div id="end-container" class="btn-container end-container hide">
+          <i class="far fa-window-minimize"></i>
+          <i class="far fa-window-minimize"></i>
+          <i class="far fa-window-minimize"></i>
+          <i class="fas fa-heart" style="font-size: 3.5rem"></i>
+          <i class="far fa-window-minimize"></i>
+          <i class="far fa-window-minimize"></i>
+          <i class="far fa-window-minimize"></i>
+        </div>
       </div>
     </div>
 
-    <div class="loader" id="loader"></div>
+    <!-- <div class="loader" id="loader"></div> -->
     <!-- Script -->
     <script src="script.js"></script>
   </body>

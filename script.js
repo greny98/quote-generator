@@ -5,9 +5,19 @@ const authorText = document.getElementById("author");
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
+const endContainer = document.getElementById("end-container");
 
-let quotes = [];
-
+let quotes = [
+  `Em ơi... <i class="far fa-kiss-wink-heart"></i>`,
+  "Em có biết gì không???",
+  "Anh thíchh...",
+  `Đi lượn cùng em <i class="fas fa-motorcycle"></i>`,
+  `Đi ăn cùng em <i class="fas fa-utensils"></i>`,
+  `Mình cùng nhau có một đứa nhé <i class="fas fa-baby"></i>`,
+  `Và cuối cùng là...`,
+  `Anh yêu em rất nhiều`,
+];
+let i = 0;
 // Call APi
 async function getQuotes() {
   const apiUrl = "https://type.fit/api/quotes";
@@ -37,6 +47,14 @@ function newQuote() {
   quoteText.textContent = quote.text;
 }
 
+function getSent() {
+  quoteText.innerHTML = quotes[i++];
+  if (i >= quotes.length) {
+    newQuoteBtn.classList.add("hide");
+    endContainer.classList.remove("hide");
+  }
+}
+
 // Tweet quote
 function tweetQuote() {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
@@ -47,12 +65,12 @@ newQuoteBtn.addEventListener("click", () => {
   quoteContainer.classList.remove("fade-in");
   quoteContainer.classList.add("fade-out");
   setTimeout(() => {
-    newQuote();
+    getSent();
     quoteContainer.classList.add("fade-in");
     quoteContainer.classList.remove("fade-out");
   }, 460);
 });
-twitterBtn.addEventListener("click", tweetQuote);
+// twitterBtn.addEventListener("click", tweetQuote);
 
 // On load
-getQuotes();
+getSent();
